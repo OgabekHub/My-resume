@@ -1,0 +1,603 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C870;
+  --gold-dim: #8B6E30;
+  --bg: #111110;
+  --bg2: #1A1917;
+  --bg3: #222120;
+  --border: rgba(201, 168, 76, 0.18);
+  --border-dim: rgba(255, 255, 255, 0.07);
+  --text: #F0EDE6;
+  --text-muted: #9B978E;
+  --text-dim: #6B6760;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(201, 168, 76, 0.10) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.fab-pdf {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 200;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 24px rgba(201, 168, 76, 0.35);
+  color: #1a1917;
+  font-size: 18px;
+  transition: transform 0.2s, opacity 0.3s;
+}
+
+.fab-pdf:hover {
+  transform: scale(1.1);
+}
+
+.fab-pdf.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 56px 5% 80px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: center;
+  padding-bottom: 44px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 44px;
+  animation: fadeUp 0.7s ease both;
+}
+
+.hero-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold-dim);
+  padding: 3px 10px;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 700;
+  line-height: 1.08;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.hero-name em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.contact-line {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.contact-line i {
+  color: var(--gold);
+  width: 14px;
+  text-align: center;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.contact-line a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.contact-line a:hover {
+  color: var(--gold);
+}
+
+.hero-photo-ring {
+  width: 144px;
+  height: 144px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  padding: 4px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.hero-photo-ring::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+
+.hero-photo-ring img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  background: var(--bg3);
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--border-dim);
+  border-radius: 4px;
+  padding: 26px;
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp 0.8s ease both;
+  transition: border-color 0.3s;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:nth-child(1) {
+  animation-delay: .05s
+}
+
+.card:nth-child(2) {
+  animation-delay: .10s
+}
+
+.card:nth-child(3) {
+  animation-delay: .15s
+}
+
+.card:nth-child(4) {
+  animation-delay: .20s
+}
+
+.card:nth-child(5) {
+  animation-delay: .25s
+}
+
+.card:nth-child(6) {
+  animation-delay: .30s
+}
+
+.card-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--text);
+  padding-bottom: 11px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.card-title i {
+  color: var(--gold);
+  font-size: 13px;
+}
+
+.objective-text {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.entry {
+  margin-bottom: 18px;
+}
+
+.entry:last-child {
+  margin-bottom: 0;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+
+.entry-title {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.entry-date {
+  font-size: 11px;
+  color: var(--gold-dim);
+  white-space: nowrap;
+  background: rgba(139, 110, 48, 0.08);
+  padding: 2px 7px;
+  border-radius: 2px;
+  border: 1px solid rgba(139, 110, 48, 0.16);
+}
+
+.entry-org {
+  font-size: 12px;
+  color: var(--gold);
+  margin-bottom: 5px;
+}
+
+.entry-list {
+  list-style: none;
+  padding: 0;
+}
+
+.entry-list li {
+  font-size: 13px;
+  color: var(--text-muted);
+  padding-left: 13px;
+  position: relative;
+  margin-bottom: 2px;
+}
+
+.entry-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold-dim);
+  font-size: 10px;
+  top: 3px;
+}
+
+.entry-divider {
+  border: none;
+  border-top: 1px solid var(--border-dim);
+  margin: 14px 0;
+}
+
+.skill-group {
+  margin-bottom: 14px;
+}
+
+.skill-group:last-child {
+  margin-bottom: 0;
+}
+
+.skill-group-name {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 7px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  font-size: 12px;
+  color: var(--text-muted);
+  background: var(--bg3);
+  border: 1px solid var(--border-dim);
+  padding: 3px 10px;
+  border-radius: 2px;
+}
+
+.project-item {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-dim);
+}
+
+.project-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.project-item:first-child {
+  padding-top: 0;
+}
+
+.project-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+
+.project-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.project-links {
+  margin-top: 6px;
+  display: flex;
+  gap: 12px;
+}
+
+.project-link {
+  font-size: 11px;
+  color: var(--gold-dim);
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.extra-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  list-style: none;
+}
+
+.extra-item {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.extra-item::before {
+  content: '◆';
+  color: var(--gold);
+  font-size: 7px;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 24px 5%;
+  border-top: 1px solid var(--border-dim);
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+footer span {
+  color: var(--gold-dim);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 680px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .hero-photo-ring {
+    width: 100px;
+    height: 100px;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full-width {
+    grid-column: 1;
+  }
+
+  .extra-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* PDF capture mode — fixed overlay va tugmani yashirish */
+body.pdf-mode::after {
+  display: none !important;
+}
+
+body.pdf-mode .fab-pdf {
+  display: none !important;
+}
+
+/* ── PRINT / PDF ── */
+@media print {
+
+  /* Sahifa sozlamalari */
+  body {
+    size: A4 portrait;
+    margin: 10mm 12mm;
+  }
+
+  /* Reset */
+  *,
+  *::before,
+  *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Yashirish: dot grid, fab tugma */
+  body::after {
+    display: none !important;
+  }
+
+  .fab-pdf {
+    display: none !important;
+  }
+
+  footer {
+    display: none;
+  }
+
+  /* Layout */
+  body {
+    background: #111110 !important;
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+  }
+
+  main {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Hero */
+  .hero {
+    padding-bottom: 20px !important;
+    margin-bottom: 20px !important;
+    gap: 24px !important;
+    animation: none !important;
+  }
+
+  .hero-name {
+    font-size: 32px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .hero-photo-ring {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  /* Cards */
+  .content-grid {
+    gap: 10px !important;
+  }
+
+  .card {
+    padding: 14px !important;
+    animation: none !important;
+    break-inside: avoid;
+  }
+
+  .card.full-width {
+    break-inside: avoid;
+  }
+
+  /* Kichik shriftlar */
+  .objective-text {
+    font-size: 11px !important;
+  }
+
+  .entry-title {
+    font-size: 11px !important;
+  }
+
+  .entry-org {
+    font-size: 10px !important;
+  }
+
+  .entry-list li {
+    font-size: 10px !important;
+  }
+
+  .tag {
+    font-size: 10px !important;
+    padding: 2px 6px !important;
+  }
+
+  .project-desc {
+    font-size: 10px !important;
+  }
+
+  .extra-item {
+    font-size: 10px !important;
+  }
+
+  .card-title {
+    font-size: 14px !important;
+  }
+}
