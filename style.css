@@ -493,41 +493,54 @@ body.pdf-mode .fab-pdf {
 
 /* ── PRINT / PDF ── */
 @media print {
-
   /* Sahifa sozlamalari */
   body {
     size: A4 portrait;
     margin: 10mm 12mm;
+    background: #ffffff !important;
+    color: #111110 !important;
   }
 
-  /* Reset */
+  /* Ranglarni chop etish uchun toza oq-qora shaklga keltirish */
   *,
   *::before,
   *::after {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
+    background: transparent !important;
+    color: #111110 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
   }
 
-  /* Yashirish: dot grid, fab tugma */
+  /* Oltin/qo'ng'ir tuslarni muhim joylarda saqlab qolamiz */
+  .hero-name em,
+  .hero-tag,
+  .entry-org,
+  .project-link,
+  footer span,
+  .card-title i,
+  .contact-line i {
+    color: #8B6E30 !important;
+  }
+
+  .hero-tag {
+    border-color: #8B6E30 !important;
+  }
+
+  /* Tugmalar va keraksiz qismlarni yashirish */
   body::after {
     display: none !important;
   }
 
-  .fab-pdf {
+  .fab-pdf,
+  .fab-lang {
     display: none !important;
   }
 
   footer {
-    display: none;
+    display: none !important;
   }
 
-  /* Layout */
-  body {
-    background: #111110 !important;
-    font-size: 11px !important;
-    line-height: 1.5 !important;
-  }
-
+  /* Main container */
   main {
     max-width: 100% !important;
     padding: 0 !important;
@@ -536,6 +549,7 @@ body.pdf-mode .fab-pdf {
 
   /* Hero */
   .hero {
+    border-bottom: 1px solid #d2d2d0 !important;
     padding-bottom: 20px !important;
     margin-bottom: 20px !important;
     gap: 24px !important;
@@ -550,30 +564,53 @@ body.pdf-mode .fab-pdf {
   .hero-photo-ring {
     width: 100px !important;
     height: 100px !important;
+    border-color: #8B6E30 !important;
   }
 
-  /* Cards */
+  .hero-photo-ring::before {
+    border-color: #e2e2e0 !important;
+  }
+
+  /* Cards styling */
   .content-grid {
     gap: 10px !important;
   }
 
   .card {
+    background: #ffffff !important;
+    border: 1px solid #e2e2e0 !important;
     padding: 14px !important;
     animation: none !important;
     break-inside: avoid;
+  }
+
+  .card::before {
+    display: none !important;
   }
 
   .card.full-width {
     break-inside: avoid;
   }
 
-  /* Kichik shriftlar */
+  .card-title {
+    font-size: 14px !important;
+    border-bottom: 1px solid #e2e2e0 !important;
+  }
+
+  /* Kichik shriftlar va ro'yxatlar */
   .objective-text {
     font-size: 11px !important;
+    color: #333330 !important;
   }
 
   .entry-title {
     font-size: 11px !important;
+  }
+
+  .entry-date {
+    color: #8B6E30 !important;
+    border-color: rgba(139, 110, 48, 0.3) !important;
+    background: rgba(139, 110, 48, 0.04) !important;
   }
 
   .entry-org {
@@ -582,22 +619,77 @@ body.pdf-mode .fab-pdf {
 
   .entry-list li {
     font-size: 10px !important;
+    color: #333330 !important;
   }
 
   .tag {
     font-size: 10px !important;
     padding: 2px 6px !important;
+    background: #f4f4f2 !important;
+    border: 1px solid #d2d2d0 !important;
+    color: #333330 !important;
   }
 
   .project-desc {
     font-size: 10px !important;
+    color: #333330 !important;
   }
 
   .extra-item {
     font-size: 10px !important;
+    color: #333330 !important;
   }
+}
 
-  .card-title {
-    font-size: 14px !important;
+/* ── LANGUAGE SWITCHER ── */
+.fab-lang {
+  position: fixed;
+  bottom: 96px;
+  right: 32px;
+  z-index: 200;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--bg2);
+  border: 1px solid var(--gold);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 24px rgba(201, 168, 76, 0.15);
+  color: var(--gold);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  transition: transform 0.2s, background 0.2s, color 0.2s, opacity 0.3s;
+}
+
+.fab-lang:hover {
+  transform: scale(1.1);
+  background: var(--gold);
+  color: #1a1917;
+}
+
+.fab-lang.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.lang-uz .lang-en {
+  display: none !important;
+}
+
+body.lang-en .lang-uz {
+  display: none !important;
+}
+
+/* PDF/Print modeda switcherlarni yashirish */
+body.pdf-mode .fab-lang {
+  display: none !important;
+}
+
+@media print {
+  .fab-lang {
+    display: none !important;
   }
 }
