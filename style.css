@@ -496,11 +496,11 @@ body.pdf-mode .fab-pdf {
   /* Sahifa sozlamalari */
   body {
     size: A4 portrait;
-    margin: 8mm 10mm;
+    margin: 10mm 12mm;
     background: #ffffff !important;
     color: #111110 !important;
-    font-size: 10.5px !important;
-    line-height: 1.4 !important;
+    font-size: 11px !important;
+    line-height: 1.55 !important;
   }
 
   /* Ranglarni chop etish uchun toza oq-qora shaklga keltirish */
@@ -526,8 +526,8 @@ body.pdf-mode .fab-pdf {
 
   .hero-tag {
     border-color: #8B6E30 !important;
-    margin-bottom: 6px !important;
-    padding: 2px 8px !important;
+    margin-bottom: 8px !important;
+    padding: 3px 10px !important;
   }
 
   /* Tugmalar va keraksiz qismlarni yashirish */
@@ -554,42 +554,42 @@ body.pdf-mode .fab-pdf {
   /* Hero */
   .hero {
     border-bottom: 1px solid #d2d2d0 !important;
-    padding-bottom: 12px !important;
-    margin-bottom: 12px !important;
-    gap: 16px !important;
+    padding-bottom: 16px !important;
+    margin-bottom: 20px !important;
+    gap: 20px !important;
     animation: none !important;
   }
 
   .hero-name {
-    font-size: 28px !important;
-    margin-bottom: 6px !important;
+    font-size: 32px !important;
+    margin-bottom: 8px !important;
   }
 
   .hero-contacts {
-    gap: 3px !important;
+    gap: 4px !important;
     margin-bottom: 0 !important;
   }
 
   .hero-photo-ring {
-    width: 90px !important;
-    height: 90px !important;
+    width: 100px !important;
+    height: 100px !important;
     border-color: #8B6E30 !important;
   }
 
   .hero-photo-ring::before {
     border-color: #e2e2e0 !important;
-    inset: -5px !important;
+    inset: -6px !important;
   }
 
   /* Cards styling */
   .content-grid {
-    gap: 12px !important;
+    gap: 16px !important;
   }
 
   .card {
     background: #ffffff !important;
     border: 1px solid #e2e2e0 !important;
-    padding: 12px !important;
+    padding: 16px !important;
     animation: none !important;
     break-inside: avoid;
   }
@@ -603,83 +603,83 @@ body.pdf-mode .fab-pdf {
   }
 
   .card-title {
-    font-size: 13px !important;
+    font-size: 14px !important;
     border-bottom: 1px solid #e2e2e0 !important;
-    padding-bottom: 6px !important;
-    margin-bottom: 10px !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 12px !important;
   }
 
   /* Kichik shriftlar va ro'yxatlar */
   .objective-text {
-    font-size: 10.5px !important;
+    font-size: 11px !important;
     color: #333330 !important;
   }
 
   .entry {
-    margin-bottom: 10px !important;
+    margin-bottom: 12px !important;
   }
 
   .entry-title {
-    font-size: 10.5px !important;
+    font-size: 11px !important;
   }
 
   .entry-date {
-    font-size: 10px !important;
+    font-size: 10.5px !important;
     color: #8B6E30 !important;
     border-color: rgba(139, 110, 48, 0.3) !important;
     background: rgba(139, 110, 48, 0.04) !important;
-    padding: 1px 5px !important;
+    padding: 2px 6px !important;
   }
 
   .entry-org {
-    font-size: 9.5px !important;
-    margin-bottom: 2px !important;
+    font-size: 10px !important;
+    margin-bottom: 3px !important;
   }
 
   .entry-list li {
-    font-size: 9.5px !important;
+    font-size: 10px !important;
     color: #333330 !important;
   }
 
   .entry-divider {
-    margin: 8px 0 !important;
+    margin: 10px 0 !important;
   }
 
   .skill-group {
-    margin-bottom: 8px !important;
+    margin-bottom: 10px !important;
   }
 
   .skill-group-name {
-    margin-bottom: 4px !important;
+    margin-bottom: 6px !important;
   }
 
   .skill-tags {
-    gap: 4px !important;
+    gap: 6px !important;
   }
 
   .tag {
-    font-size: 9.5px !important;
-    padding: 1px 5px !important;
+    font-size: 10px !important;
+    padding: 2px 6px !important;
     background: #f4f4f2 !important;
     border: 1px solid #d2d2d0 !important;
     color: #333330 !important;
   }
 
   .project-item {
-    padding: 8px 0 !important;
+    padding: 10px 0 !important;
   }
 
   .project-desc {
-    font-size: 9.5px !important;
+    font-size: 10px !important;
     color: #333330 !important;
   }
 
   .extra-grid {
-    gap: 6px !important;
+    gap: 8px !important;
   }
 
   .extra-item {
-    font-size: 9.5px !important;
+    font-size: 10px !important;
     color: #333330 !important;
   }
 }
